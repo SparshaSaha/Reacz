@@ -19,6 +19,7 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.lang.reflect.Array;
 import java.security.MessageDigest;
@@ -31,6 +32,8 @@ public class Login_Page extends AppCompatActivity {
     LoginButton loginbutton;
     CallbackManager callbackmanager;
     EditText user;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthlistener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

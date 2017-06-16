@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "127089098556",
+    "firebase_url": "https://reacz-61f2e.firebaseio.com",
+    "project_id": "reacz-61f2e",
+    "storage_bucket": "reacz-61f2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127089098556:android:334905eb5bcb2703",
+        "android_client_info": {
+          "package_name": "com.fourthstatelab.reacz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127089098556-3amlbbi9r73ku0svecpepid6l072r2l9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fourthstatelab.reacz",
+            "certificate_hash": "b73b8c1665ae35773af05dcc597767025afd01eb"
+          }
+        },
+        {
+          "client_id": "127089098556-kek3tlh39bbb60vd3cv7h7b5ofd6o5ru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1d0Y-Lo8jHAGEjZUlrJCnnlrCV0EUJdQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127089098556-kek3tlh39bbb60vd3cv7h7b5ofd6o5ru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
