@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,7 +22,14 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.lang.reflect.Array;
 import java.security.MessageDigest;
@@ -29,67 +39,100 @@ import java.util.Arrays;
 
 public class Login_Page extends AppCompatActivity {
 
-    LoginButton loginbutton;
-    CallbackManager callbackmanager;
-    EditText user;
+    EditText username;
+    EditText password;
+    Button button;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthlistener;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthlistener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mAuthlistener!=null)
+        {
+            mAuth.removeAuthStateListener(mAuthlistener);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__page);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
-        callbackmanager=CallbackManager.Factory.create();
-        loginbutton=(LoginButton)findViewById(R.id.login_button);
 
-        user=(EditText)findViewById(R.id.username);
+        username=(EditText)findViewById(R.id.username);
+        password=(EditText)findViewById(R.id.password);
+        button=(Button)findViewById(R.id.button);
 
-        callbackmanager = CallbackManager.Factory.create();
-       LoginManager.getInstance().registerCallback(callbackmanager, new FacebookCallback<LoginResult>() {
-           @Override
-           public void onSuccess(LoginResult loginResult) {
+        mAuth=FirebaseAuth.getInstance();
 
-           }
-
-           @Override
-           public void onCancel() {
-
-           }
-
-           @Override
-           public void onError(FacebookException error) {
-
-           }
-       });
-
-
-        loginbutton.setReadPermissions("email");
-
-        loginbutton.registerCallback(callbackmanager, new FacebookCallback<LoginResult>() {
+        mAuthlistener= new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
-               startActivity(new Intent(Login_Page.this,After_login.class));
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user!=null){
+                }
+                else
+                {
+                }
 
             }
+        };
 
+        //SIGN IN USING USERNAME AND PASSWORD
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancel() {
+            public void onClick(View view) {
+                SigninWithEmailAndPassword();
 
-            }
-
-            @Override
-            public void onError(FacebookException error) {
             }
         });
 
 
+        //SIGN IN USING GOOGLE API's
+
+
+
+
+
+
+
+
+
 
 
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackmanager.onActivityResult(requestCode, resultCode, data);
+    public void SigninWithEmailAndPassword()
+    {
+        mAuth.signInWithEmailAndPassword(username.getText().toString(),password.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+                try {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(Login_Page.this, "Sign up successful", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(Login_Page.this,task.getException().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch(Exception e) {
+                    Toast.makeText(Login_Page.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
     }
+
 }
