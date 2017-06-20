@@ -1,33 +1,35 @@
 {
   "project_info": {
-    "project_number": "1043634182827",
-    "project_id": "firebase-reacz"
+    "project_number": "127089098556",
+    "firebase_url": "https://reacz-61f2e.firebaseio.com",
+    "project_id": "reacz-61f2e",
+    "storage_bucket": "reacz-61f2e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1043634182827:android:334905eb5bcb2703",
+        "mobilesdk_app_id": "1:127089098556:android:334905eb5bcb2703",
         "android_client_info": {
           "package_name": "com.fourthstatelab.reacz"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1043634182827-m63e7bekl5psr8jj0uoqev0ljvnp8ekp.apps.googleusercontent.com",
+          "client_id": "127089098556-3amlbbi9r73ku0svecpepid6l072r2l9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.fourthstatelab.reacz",
-            "certificate_hash": "9690bfa6592198e4dc53ed05d015413f22b7be90"
+            "certificate_hash": "b73b8c1665ae35773af05dcc597767025afd01eb"
           }
         },
         {
-          "client_id": "1043634182827-nighkb7pika947dg7dce1ic43rk7t1s4.apps.googleusercontent.com",
+          "client_id": "127089098556-kek3tlh39bbb60vd3cv7h7b5ofd6o5ru.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBm685d5fNYZJRmzyUPoVSTYm6__gw1H0o"
+          "current_key": "AIzaSyC1d0Y-Lo8jHAGEjZUlrJCnnlrCV0EUJdQ"
         }
       ],
       "services": {
@@ -35,11 +37,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127089098556-kek3tlh39bbb60vd3cv7h7b5ofd6o5ru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
