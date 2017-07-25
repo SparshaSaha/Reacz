@@ -1,4 +1,4 @@
-package com.fourthstatelab.reacz;
+package com.fourthstatelab.reacz.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +19,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.fourthstatelab.reacz.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;

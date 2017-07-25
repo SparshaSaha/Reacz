@@ -31,14 +31,14 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login_Page">
+        <activity android:name=".Activities.Login_Page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".After_login"></activity>
+        <activity android:name=".Activities.After_login"></activity>
     </application>
 
 </manifest>
